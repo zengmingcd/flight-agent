@@ -23,9 +23,11 @@ class OpenAIClient:
 
         self.client = OpenAI(api_key=api_key)
 
-    def generate_text(self, 
-                      system_prompt: str,
-                      user_prompt: str) -> str:
+    def generate_text(
+            self, 
+            system_prompt: str,
+            user_prompt: str,
+            ) -> str:
         """Generate text from system instructions and user input."""
         response = self.client.responses.create(
             model=self.model,

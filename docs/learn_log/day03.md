@@ -17,3 +17,8 @@ The business layer will use missing_fields to decide whether clarification is re
 
 The Pydantic model represents and validates data.
 Business decisions belong in a separate service.
+
+### Literal and default values
+
+A field's default value should always be included in its Literal choices.
+Otherwise, the Python model and generated JSON Schema may become inconsistent.

@@ -14,8 +14,8 @@ def test_complete_flight_intent_is_valid() -> None:
         cabin_class="economy",
         max_price=500,
         currency="CAD",
-        flexible_date=False,
-        raw_user_query="Toronto to Vancouver Round Trip, 2 Passenger economy",
+        flexible_dates=False,
+        raw_user_query="Toronto to Vancouver Round Trip, 3 Passenger economy",
         missing_fields=[],
         confidence=0.95,
     )
@@ -45,3 +45,11 @@ def test_invalid_cabin_class_is_rejected() -> None:
             raw_user_query="Luxury flight to Vancouver",
             confidence=0.7
         )
+
+def test_default_cabin_class_is_unknown() -> None:
+    intent = FlightIntent(
+        raw_user_query="Find me a flight.",
+        confidence=0.5,
+    )
+
+    assert intent.cabin_class == "unknown"

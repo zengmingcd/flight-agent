@@ -56,7 +56,7 @@ PROMPT_PATH = PROJECT_ROOT / "app" / "prompts" / "flight_parser_v1.md"
         ),
         (
             (
-                "I want to fly from Toronto to Chengdu around Christmas for three weeks."
+                "I want to fly from Toronto to Chengdu around Christmas for three weeks. "
                 "Two adults and one child, under 5000 CAD."
             ),
             {

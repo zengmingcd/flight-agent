@@ -29,12 +29,12 @@ Use a specific date only when it can be determined reliably.
 Use the ISO 8601 format: `YYYY-MM-DD`
 If the user provides only a vague date such as "around Christmas", "next month", or "sometime in August", use null.
 
-# return_date
+## return_date
 Use a specific date only when it can be determined reliably.
 Use the ISO 8601 format: `YYYY-MM-DD`
 Use null for one-way trips or when the return date cannot be determined.
 
-# trip_type
+## trip_type
 Allowed values:
 - one_way
 - round_trip

@@ -3,7 +3,7 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 
-TripType = Literal["one_way", "round_trip", "unknown",]
+TripType = Literal["one_way", "round_trip", "unknown"]
 
 CabinClass = Literal[
     "economy",

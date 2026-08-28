@@ -91,9 +91,9 @@ def test_flight_parser(
     expected_fields: dict,
 ) -> None:
     
-    flightParser = FlightParser()
+    flight_parser = FlightParser()
 
-    intent = flightParser.parse(
+    intent = flight_parser.parse(
         user_query=user_prompt,
     )
 

@@ -1,7 +1,7 @@
 from ..models.flight_intent import FlightIntent
 from pathlib import Path
 from .llm_client import OpenAIClient
-from .flight_pasering_error import FlightParsingError
+from .flight_parsing_error import FlightParsingError
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PROMPT_PATH = PROJECT_ROOT / "prompts" / "flight_parser_v1.md"

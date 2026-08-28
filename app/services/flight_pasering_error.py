@@ -1,0 +1,4 @@
+
+class FlightParsingError(Exception):
+
+    pass

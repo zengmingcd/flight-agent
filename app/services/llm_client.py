@@ -1,13 +1,14 @@
 import os
 from pathlib import Path
-
 from dotenv import load_dotenv
 from openai import OpenAI
+from typing import TypeVar
+from pydantic import BaseModel
 
 
 ENV_FILE = Path(__file__).resolve().parents[2] / ".env"
 
-
+T = TypeVar("T", bound=BaseModel)
 class OpenAIClient:
     """Provide centralized access to the OpenAI Response API."""
     def __init__(self) -> None:
@@ -36,3 +37,21 @@ class OpenAIClient:
         )
 
         return response.output_text
+    
+    def generate_structured(self, 
+                            system_prompt: str, 
+                            user_prompt: str, 
+                            response_model: type[T]) -> T:
+        response = self.client.responses.parse(
+            model=self.model,
+            instructions=system_prompt,
+            input=user_prompt,
+            text_format=response_model
+        )
+
+        parsed = response.output_parsed
+
+        if parsed is None:
+            raise ValueError("OpenAI response could not be parsed!")
+        
+        return parsed
